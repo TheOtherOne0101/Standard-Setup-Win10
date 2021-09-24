@@ -1,4 +1,4 @@
-# standard-pc-setup
+# Standard-Setup-Win10
 Powershell script wich configures some general settings on a windows 10 system
 
 ### Version:
