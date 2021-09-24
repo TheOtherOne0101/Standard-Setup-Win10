@@ -1,9 +1,9 @@
 ﻿<#
     .SYNOPSIS
-    Configures a Windows 10 Computer to the Standards of Root Service AG
+    Configures a Windows 10 Computer to the Preset defaults
 
     .DESCRIPTION
-    This Script completly configures a computer for the Root Service AG.
+    This Script completly configures a computer to certain defaults.
     Some Features may not currently work or are yet to be implemented.
     For more Detail read the "Readme.md" File
 
@@ -581,10 +581,10 @@ function SetSystemProperties() {
     }
 
     $SysProps = @{
-        Manufacturer = "Root Service AG"
+        Manufacturer = "My Company Name"
         SupportHours = "von 08:00 bis 17:00"
-        SupportPhone = "Tel.: +41 71 634 80 40"
-        SupportURL = "https://get.teamviewer.com/zaddm3n"
+        SupportPhone = "Tel.: +41 76 832 76 10"
+        SupportURL = "https://myexampleurl.stuff"
     }
 
     foreach ($prop in $SysProps.GetEnumerator()){
@@ -686,14 +686,14 @@ function GetTeamViewer() {
     #Log Func
     LogWrite "FUNC | 13 Fernwartung wird Heruntergeladen" 
 
-    #Sicherhehen das Root dir existiert
+    #Sicherhehen das root-dir existiert
     If(-Not(Test-Path "C:\root")){
         mkdir "C:\root" -Force
     }
 
     #Fernwartung herunterladen
-    $source = "https://customdesign.teamviewer.com/download/version_15x/zaddm3n_windows/TeamViewerQS.exe"
-    $destinationArr = @("C:\Users\Public\Desktop\Root Service AG - Fernwartung.exe", "C:\root\Root Service AG - Fernwartung.exe")
+    $source = "https://customdesign.teamviewer.com/download/version_15x/example/TeamViewerQS.exe"
+    $destinationArr = @("C:\Users\Public\Desktop\My Company AG - Fernwartung.exe", "C:\root\My Company AG - Fernwartung.exe")
     foreach ($destination in $destinationArr) {
         try { Invoke-WebRequest $source -OutFile $destination }
         catch {
@@ -704,7 +704,7 @@ function GetTeamViewer() {
     }
 
     #Logging
-    If (Test-Path "C:\Users\Public\Desktop\Root Service AG - Fernwartung.exe") {
+    If (Test-Path "C:\Users\Public\Desktop\My Company AG - Fernwartung.exe") {
         #Log Info
         LogWrite "INFO | Fernwartung auf Public Desktop gespeichert"
     } 
@@ -925,7 +925,7 @@ elseif ($null -ne $PCName) {
     ActivateRDP
     ActivateNumLock
 
-    #For Root Service AG
+    #Company Specific
     SetSystemProperties
     GetTeamViewer
 
