@@ -26,8 +26,7 @@ Rewrite everything to english
 * "#T"    -    Todo
 
 ### Link:
-https://github.com/drmgames5/standard-pc-setup.git
-
+https://github.com/TheOtherOne0101/Standard-Setup-Win10
 
 ## Sources
 
