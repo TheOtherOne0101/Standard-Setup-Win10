@@ -266,7 +266,7 @@ function InstallStandardApps() {
     foreach ($App in $StandardApps) {
 
         #Log Info
-        LogWrite "INFO | Software-Infos aus CSV: " $App
+        LogWrite "INFO | Software-Infos aus CSV: " $App.Name
 
         #DateiPfad nach download
         $destination = $workdir+$App.Name+".exe"
