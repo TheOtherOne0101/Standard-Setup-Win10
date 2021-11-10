@@ -79,7 +79,7 @@
 
 param (
     [string] $PCName,
-    [string] $Key,
+    [string] $Key=$null,
     [switch] $MultiDrive,
     [switch] $User,
     [validateset(
